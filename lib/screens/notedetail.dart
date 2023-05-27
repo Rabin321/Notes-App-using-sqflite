@@ -10,6 +10,8 @@ class NoteDetail extends StatefulWidget {
 }
 
 class _NoteDetailState extends State<NoteDetail> {
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
   static var _priorities = ["High", "Low"];
 
   @override
@@ -40,6 +42,7 @@ class _NoteDetailState extends State<NoteDetail> {
               ),
             ),
             TextField(
+              controller: titleController,
               decoration: InputDecoration(
                 labelText: "Title",
                 labelStyle: const TextStyle(fontSize: 20),
@@ -47,11 +50,15 @@ class _NoteDetailState extends State<NoteDetail> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
+              onChanged: (value) {
+                debugPrint("Something changed in Title Text Field $value");
+              },
             ),
             SizedBox(
               height: 30,
             ),
             TextField(
+              controller: descriptionController,
               minLines: 6,
               maxLines: 15,
               decoration: InputDecoration(
@@ -61,6 +68,9 @@ class _NoteDetailState extends State<NoteDetail> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
+              onChanged: (value) {
+                debugPrint("Something changed in Description Text Field");
+              },
             ),
             Row(
               children: [

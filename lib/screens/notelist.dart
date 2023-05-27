@@ -55,7 +55,8 @@ class _NoteListState extends State<NoteList> {
               color: Colors.grey,
             ),
             onTap: () {
-              debugPrint("ListTile Tapped");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const NoteDetail()));
             },
           ),
         );
